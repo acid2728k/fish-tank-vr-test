@@ -20,41 +20,24 @@ export function CameraView({ videoElement, landmarks }: CameraViewProps) {
     const draw = () => {
       if (!videoElement || !ctx) return;
 
-      // Set canvas size to match video
-      canvas.width = videoElement.videoWidth || 640;
-      canvas.height = videoElement.videoHeight || 480;
+      // Set canvas size to match video (only if changed)
+      const videoWidth = videoElement.videoWidth || 640;
+      const videoHeight = videoElement.videoHeight || 480;
+      
+      if (canvas.width !== videoWidth || canvas.height !== videoHeight) {
+        canvas.width = videoWidth;
+        canvas.height = videoHeight;
+      }
 
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw video frame (mirrored)
+      // Draw video frame (mirrored) with grayscale filter (much faster than manual pixel manipulation)
       ctx.save();
+      ctx.filter = 'grayscale(100%)';
       ctx.scale(-1, 1);
       ctx.drawImage(videoElement, -canvas.width, 0, canvas.width, canvas.height);
       ctx.restore();
-
-      // Convert to grayscale manually (works in all browsers)
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      
-      for (let i = 0; i < data.length; i += 4) {
-        // Get RGB values
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        
-        // Calculate grayscale value using luminance formula
-        const gray = 0.299 * r + 0.587 * g + 0.114 * b;
-        
-        // Set RGB to grayscale value
-        data[i] = gray;     // R
-        data[i + 1] = gray; // G
-        data[i + 2] = gray; // B
-        // Alpha channel (data[i + 3]) stays the same
-      }
-      
-      // Put the modified image data back
-      ctx.putImageData(imageData, 0, 0);
 
       // Draw landmarks if available
       if (landmarks && landmarks.length > 0) {

@@ -157,14 +157,32 @@ function App() {
 
   // Render loop
   useEffect(() => {
+    let lastEyePos = { ...eyePos };
+    let lastCalibration = { ...calibration };
+    
     const render = () => {
       if (!cameraRef.current || !rendererRef.current || !sceneRef.current) {
         animationFrameRef.current = requestAnimationFrame(render);
         return;
       }
 
-      // Update quad reprojection (Z is always from calibration)
-      updateQuadReprojection(cameraRef.current, eyePos, calibration);
+      // Only update if eye position or calibration changed
+      const eyePosChanged = 
+        lastEyePos.x !== eyePos.x || 
+        lastEyePos.y !== eyePos.y || 
+        lastEyePos.z !== eyePos.z;
+      const calibrationChanged = 
+        lastCalibration.screenWidthCm !== calibration.screenWidthCm ||
+        lastCalibration.screenHeightCm !== calibration.screenHeightCm ||
+        lastCalibration.viewerDistanceCm !== calibration.viewerDistanceCm ||
+        lastCalibration.near !== calibration.near ||
+        lastCalibration.far !== calibration.far;
+
+      if (eyePosChanged || calibrationChanged) {
+        updateQuadReprojection(cameraRef.current, eyePos, calibration);
+        lastEyePos = { ...eyePos };
+        lastCalibration = { ...calibration };
+      }
 
       // Render
       rendererRef.current.render(sceneRef.current, cameraRef.current);

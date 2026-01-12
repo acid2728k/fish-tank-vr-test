@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+}
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+#hud > * {
+  pointer-events: auto;
+}
+
+.hud-panel {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px;
+  font-size: 11px;
+  line-height: 1.4;
+  min-width: 200px;
+}
+
+.hud-panel h3 {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 4px;
+}
+
+.hud-control {
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-control label {
+  min-width: 100px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hud-control input[type="range"] {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.hud-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hud-control input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hud-control input[type="number"] {
+  width: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 2px 4px;
+  font-size: 11px;
+}
+
+.hud-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  margin: 4px 0;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.hud-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hud-button:active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hud-status {
+  margin: 4px 0;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hud-status strong {
+  color: #fff;
+}
+
+.debug-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  height: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+.debug-overlay canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

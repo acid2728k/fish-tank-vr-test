@@ -1,4 +1,4 @@
-# Исследование Fish Tank VR и Head-Coupled Perspective
+# Исследование Fish Tank VR
 
 ## Найденные проекты и решения
 
@@ -24,7 +24,7 @@
 
 ### 2. Научные подходы
 
-#### Head-Coupled Perspective / Fish Tank VR
+#### Fish Tank VR
 - **Концепция**: Экран как "стекло аквариума", через которое пользователь смотрит на виртуальные объекты
 - **Ключевые принципы**:
   - Перспектива изменяется в соответствии с положением головы
@@ -153,7 +153,7 @@
    - Стайное движение
 
 4. **Research Papers**:
-   - "Head-Coupled Perspective" исследования
+   - "Fish Tank VR" исследования
    - Off-axis projection техники
    - Look-through display implementations
 

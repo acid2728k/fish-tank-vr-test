@@ -14,7 +14,7 @@
 После создания репозитория GitHub покажет вам команды. Выполните их в терминале:
 
 ```bash
-cd "/Users/sergys/Desktop/Cursor App - Rep/head-coupled-vr"
+cd "/Users/sergys/Desktop/Cursor App - Rep/fish-tank-vr2"
 
 # Добавьте remote (замените YOUR_USERNAME на ваш GitHub username)
 git remote add origin https://github.com/YOUR_USERNAME/fish-tank-vr-test.git
@@ -34,7 +34,7 @@ git push -u origin main
 Если вы уже создали репозиторий с README, выполните:
 
 ```bash
-cd "/Users/sergys/Desktop/Cursor App - Rep/head-coupled-vr"
+cd "/Users/sergys/Desktop/Cursor App - Rep/fish-tank-vr2"
 
 # Добавьте remote
 git remote add origin https://github.com/YOUR_USERNAME/fish-tank-vr-test.git

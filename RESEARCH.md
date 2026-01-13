@@ -1,147 +1,147 @@
-# Исследование Fish Tank VR
+# Fish Tank VR Research
 
-## Найденные проекты и решения
+## Found Projects and Solutions
 
-### 1. Технические реализации
+### 1. Technical Implementations
 
 #### WebGL Aquarium (meghprkh/webgl-aquarium)
-- **Технологии**: WebGL, Three.js
-- **Особенности**:
-  - Реалистичное освещение
-  - Отражения на стекле и металле
-  - Пузырьки и эффекты воды
-  - Различные виды рыб
-- **Что можно взять**: Техники освещения и отражений для более реалистичного вида
+- **Technologies**: WebGL, Three.js
+- **Features**:
+  - Realistic lighting
+  - Reflections on glass and metal
+  - Bubbles and water effects
+  - Various fish species
+- **What to take**: Lighting and reflection techniques for more realistic appearance
 
 #### Fishtank by mrd (Haskell/OpenGL)
-- **Технологии**: Haskell, OpenGL
-- **Особенности**:
-  - Поведение рыб на основе модели "Boids"
-  - Стайное поведение
-  - Отношения хищник/жертва
-  - Интерактивность (кормление, изменение угла обзора)
-- **Что можно взять**: Алгоритмы поведения рыб для более реалистичной анимации
+- **Technologies**: Haskell, OpenGL
+- **Features**:
+  - Fish behavior based on "Boids" model
+  - Flocking behavior
+  - Predator/prey relationships
+  - Interactivity (feeding, viewing angle changes)
+- **What to take**: Fish behavior algorithms for more realistic animation
 
-### 2. Научные подходы
+### 2. Scientific Approaches
 
 #### Fish Tank VR
-- **Концепция**: Экран как "стекло аквариума", через которое пользователь смотрит на виртуальные объекты
-- **Ключевые принципы**:
-  - Перспектива изменяется в соответствии с положением головы
-  - Высококачественная графика
-  - Интеграция виртуальной среды с рабочим пространством
+- **Concept**: Screen as "aquarium glass" through which user views virtual objects
+- **Key Principles**:
+  - Perspective changes according to head position
+  - High-quality graphics
+  - Integration of virtual environment with workspace
 
-### 3. Рекомендации для улучшения реалистичности
+### 3. Recommendations for Improving Realism
 
-#### A. Визуальные улучшения
+#### A. Visual Improvements
 
-1. **Освещение и отражения**
-   - Добавить отражения на "стекле" экрана (screen-space reflections)
-   - Реалистичное освещение сцены (ambient, directional, point lights)
-   - Преломления для эффекта "воды"
+1. **Lighting and Reflections**
+   - Add reflections on screen "glass" (screen-space reflections)
+   - Realistic scene lighting (ambient, directional, point lights)
+   - Refractions for "water" effect
 
-2. **Эффекты воды**
-   - Каустика (caustics) - световые эффекты на дне
-   - Пузырьки воздуха
-   - Волны и течения (если применимо)
+2. **Water Effects**
+   - Caustics - light effects on bottom
+   - Air bubbles
+   - Waves and currents (if applicable)
 
-3. **Детализация сцены**
-   - Более детализированные текстуры
-   - Партиклы (пыль, частицы в воздухе)
-   - Пост-обработка (bloom, color grading)
+3. **Scene Detail**
+   - More detailed textures
+   - Particles (dust, particles in air)
+   - Post-processing (bloom, color grading)
 
-#### B. Поведение объектов
+#### B. Object Behavior
 
-1. **Алгоритм Boids для анимации**
-   - Стайное поведение
-   - Избегание препятствий
-   - Реакция на пользователя
+1. **Boids Algorithm for Animation**
+   - Flocking behavior
+   - Obstacle avoidance
+   - Reaction to user
 
-2. **Физика**
-   - Реалистичное движение объектов
-   - Гравитация и инерция
-   - Столкновения
+2. **Physics**
+   - Realistic object movement
+   - Gravity and inertia
+   - Collisions
 
-#### C. Технические улучшения
+#### C. Technical Improvements
 
-1. **Оптимизация рендеринга**
-   - Level of Detail (LOD) для объектов
+1. **Rendering Optimization**
+   - Level of Detail (LOD) for objects
    - Frustum culling
    - Occlusion culling
-   - Instancing для повторяющихся объектов
+   - Instancing for repeating objects
 
-2. **Калибровка и трекинг**
-   - Более точный трекинг головы (улучшить MediaPipe)
-   - Автоматическая калибровка расстояния
-   - Компенсация задержки (latency compensation)
+2. **Calibration and Tracking**
+   - More accurate head tracking (improve MediaPipe)
+   - Automatic distance calibration
+   - Latency compensation
 
-3. **Производительность**
-   - Web Workers для тяжелых вычислений
-   - Оптимизация геометрии (меньше полигонов где возможно)
-   - Эффективное использование текстур
+3. **Performance**
+   - Web Workers for heavy computations
+   - Geometry optimization (fewer polygons where possible)
+   - Efficient texture usage
 
-#### D. Интерактивность
+#### D. Interactivity
 
-1. **Взаимодействие с пользователем**
-   - Реакция объектов на движение головы
-   - Возможность "заглянуть" за объекты
-   - Параллакс эффекты
+1. **User Interaction**
+   - Object reaction to head movement
+   - Ability to "look behind" objects
+   - Parallax effects
 
-2. **Настройки**
-   - Регулировка глубины эффекта
-   - Настройка чувствительности трекинга
-   - Различные режимы отображения
+2. **Settings**
+   - Effect depth adjustment
+   - Tracking sensitivity settings
+   - Various display modes
 
-## Конкретные улучшения для нашего проекта
+## Specific Improvements for Our Project
 
-### Приоритет 1: Визуальные улучшения
+### Priority 1: Visual Improvements
 
-1. **Добавить освещение**
+1. **Add Lighting**
    ```typescript
-   // В scene.ts добавить:
-   - AmbientLight для базового освещения
-   - DirectionalLight для основного источника
-   - PointLight для акцентов
+   // In scene.ts add:
+   - AmbientLight for base lighting
+   - DirectionalLight for main source
+   - PointLight for accents
    ```
 
-2. **Улучшить материалы**
-   - Добавить emissive для линий (свечение)
-   - Настроить opacity для эффекта глубины
-   - Добавить fog для атмосферы
+2. **Improve Materials**
+   - Add emissive for lines (glow)
+   - Configure opacity for depth effect
+   - Add fog for atmosphere
 
-3. **Пост-обработка**
-   - Bloom эффект для ярких линий
+3. **Post-Processing**
+   - Bloom effect for bright lines
    - Color correction
-   - Vignette для фокуса
+   - Vignette for focus
 
-### Приоритет 2: Оптимизация трекинга
+### Priority 2: Tracking Optimization
 
-1. **Улучшить MediaPipe трекинг**
-   - Более точное определение расстояния (Z)
-   - Фильтрация шума
-   - Предсказание движения (prediction)
+1. **Improve MediaPipe Tracking**
+   - More accurate distance (Z) determination
+   - Noise filtering
+   - Movement prediction
 
-2. **Калибровка**
-   - Автоматическое определение размера экрана
-   - Калибровка по маркерам (если возможно)
-   - Сохранение калибровки в localStorage
+2. **Calibration**
+   - Automatic screen size detection
+   - Marker-based calibration (if possible)
+   - Save calibration to localStorage
 
-### Приоритет 3: Эффекты
+### Priority 3: Effects
 
-1. **Партиклы**
-   - Пыль в воздухе
-   - Световые частицы
-   - Эффекты глубины
+1. **Particles**
+   - Dust in air
+   - Light particles
+   - Depth effects
 
-2. **Атмосфера**
-   - Fog для создания глубины
-   - Цветовая коррекция
-   - Градиенты фона
+2. **Atmosphere**
+   - Fog for creating depth
+   - Color correction
+   - Background gradients
 
-## Полезные ресурсы
+## Useful Resources
 
 1. **WebGL Aquarium**: https://github.com/meghprkh/webgl-aquarium
-   - Изучить техники освещения и отражений
+   - Study lighting and reflection techniques
 
 2. **Three.js Examples**: 
    - Post-processing effects
@@ -149,18 +149,18 @@
    - Particle systems
 
 3. **Boids Algorithm**:
-   - Для реалистичного поведения объектов
-   - Стайное движение
+   - For realistic object behavior
+   - Flocking movement
 
 4. **Research Papers**:
-   - "Fish Tank VR" исследования
-   - Off-axis projection техники
+   - "Fish Tank VR" research
+   - Off-axis projection techniques
    - Look-through display implementations
 
-## Следующие шаги
+## Next Steps
 
-1. Изучить код webgl-aquarium для техник освещения
-2. Реализовать базовое освещение в нашей сцене
-3. Добавить fog для атмосферы
-4. Улучшить трекинг головы (более точный Z)
-5. Добавить пост-обработку (bloom, color correction)
+1. Study webgl-aquarium code for lighting techniques
+2. Implement basic lighting in our scene
+3. Add fog for atmosphere
+4. Improve head tracking (more accurate Z)
+5. Add post-processing (bloom, color correction)

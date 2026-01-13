@@ -108,7 +108,7 @@ export class ThreeSceneManager {
       '/models/pokemon_card.glb',
       (gltf) => {
         this.model = gltf.scene;
-        // Center the model, face forward (anфас)
+        // Center the model, face forward
         this.model.position.set(0, 0, 0);
         this.model.rotation.set(0, 0, 0);
         this.model.scale.set(0.071, 0.071, 0.071);

@@ -1,54 +1,54 @@
-# Инструкция по созданию репозитория на GitHub
+# GitHub Repository Setup Instructions
 
-## Шаг 1: Создайте репозиторий на GitHub
+## Step 1: Create Repository on GitHub
 
-1. Откройте https://github.com/new
-2. Название репозитория: `fish-tank-vr-test`
-3. Описание (опционально): "Fish Tank VR prototype with Quad Reprojection"
-4. Выберите **Public** или **Private** (на ваше усмотрение)
-5. **НЕ** добавляйте README, .gitignore или лицензию (мы уже добавили их)
-6. Нажмите **"Create repository"**
+1. Open https://github.com/new
+2. Repository name: `fish-tank-vr-test`
+3. Description (optional): "Fish Tank VR prototype with Quad Reprojection"
+4. Choose **Public** or **Private** (your choice)
+5. **DO NOT** add README, .gitignore, or license (we already added them)
+6. Click **"Create repository"**
 
-## Шаг 2: Подключите локальный репозиторий к GitHub
+## Step 2: Connect Local Repository to GitHub
 
-После создания репозитория GitHub покажет вам команды. Выполните их в терминале:
+After creating the repository, GitHub will show you commands. Execute them in terminal:
 
 ```bash
 cd "/Users/sergys/Desktop/Cursor App - Rep/fish-tank-vr2"
 
-# Добавьте remote (замените YOUR_USERNAME на ваш GitHub username)
+# Add remote (replace YOUR_USERNAME with your GitHub username)
 git remote add origin https://github.com/YOUR_USERNAME/fish-tank-vr-test.git
 
-# Или если используете SSH:
+# Or if using SSH:
 # git remote add origin git@github.com:YOUR_USERNAME/fish-tank-vr-test.git
 
-# Переименуйте ветку в main (если нужно)
+# Rename branch to main (if needed)
 git branch -M main
 
-# Отправьте код на GitHub
+# Push code to GitHub
 git push -u origin main
 ```
 
-## Альтернативный способ (через веб-интерфейс GitHub)
+## Alternative Method (via GitHub Web Interface)
 
-Если вы уже создали репозиторий с README, выполните:
+If you already created a repository with README, execute:
 
 ```bash
 cd "/Users/sergys/Desktop/Cursor App - Rep/fish-tank-vr2"
 
-# Добавьте remote
+# Add remote
 git remote add origin https://github.com/YOUR_USERNAME/fish-tank-vr-test.git
 
-# Переименуйте ветку
+# Rename branch
 git branch -M main
 
-# Получите изменения с GitHub (если там есть README)
+# Get changes from GitHub (if README exists there)
 git pull origin main --allow-unrelated-histories
 
-# Отправьте код
+# Push code
 git push -u origin main
 ```
 
-## Проверка
+## Verification
 
-После выполнения команд откройте https://github.com/YOUR_USERNAME/fish-tank-vr-test и убедитесь, что все файлы загружены.
+After executing commands, open https://github.com/YOUR_USERNAME/fish-tank-vr-test and verify that all files are uploaded.

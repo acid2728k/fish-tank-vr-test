@@ -45,7 +45,7 @@ Open your browser and navigate to `http://localhost:5173`
 fish-tank-vr2/
 ├── public/
 │   └── models/              # Folder for 3D models (.glb, .gltf)
-│       ├── pokemon_card.glb # Current model
+│       ├── pokemon_card.glb # Current model (free model from Sketchfab)
 │       └── ...
 ├── src/
 │   ├── components/          # React components
@@ -62,6 +62,12 @@ fish-tank-vr2/
 ```
 
 ## 🎨 Adding Your Own 3D Model
+
+### Demo Model
+
+The project uses a free 3D model of a Pokémon card for demonstration purposes. The model was sourced from [Sketchfab](https://sketchfab.com). We thank Sketchfab and the model creator for providing this free resource.
+
+**Model Source:** [Sketchfab](https://sketchfab.com) - Free 3D model collection
 
 ### Step 1: Model Preparation
 
@@ -343,3 +349,4 @@ MIT
 - Three.js - powerful library for 3D graphics
 - MediaPipe - machine learning technologies from Google
 - Johnny Chung Lee - inspiration for fish-tank VR effect
+- [Sketchfab](https://sketchfab.com) - thank you for providing the free 3D model used in this project demonstration
